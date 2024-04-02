@@ -84,8 +84,8 @@ Sprite::Sprite(GLfloat startX, GLfloat startY, GLfloat width, GLfloat height,
 	// Set up our vertex attributes pointers
 	///we don't really need normals for 2D, except maybe for special effects.
 	//We send them anyway, as we don't have special shaders for 2d mode (YET!)
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET(0)); //3 values (x,y,z) per point, start at 0 offset 	
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET(sizeof(GLfloat)* 3)); //Start after x,y,z data 
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET<GLfloat, 0>()); //3 values (x,y,z) per point, start at 0 offset 	
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET<GLfloat, 3>()); //Start after x,y,z data 
 
 
 	// activate attribute array
@@ -175,8 +175,8 @@ Sprite::Sprite(RenderBuffer * rb, TextureManager *TexManager, GLSLProgram *shade
 	// Set up our vertex attributes pointers
 	///we don't really need normals for 2D, except maybe for special effects.
 	//We send them anyway, as we don't have special shaders for 2d mode (YET!)
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET(0)); //3 values (x,y,z) per point, start at 0 offset 	
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET(sizeof(GLfloat)* 3)); //Start after x,y,z data 
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET<GLfloat, 0>()); //3 values (x,y,z) per point, start at 0 offset 	
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET<GLfloat, 3>()); //Start after x,y,z data 
 
 
 	// activate attribute array

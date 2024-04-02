@@ -89,8 +89,8 @@ BFont::BFont(std::string TextureFileName, std::string widths_file, float fontsiz
 	glBufferData(GL_ARRAY_BUFFER, sizeof(B3D::TVertex) * 4 * 256, verts, GL_STATIC_DRAW);
 
 	// Set up our vertex attributes pointers
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET(0)); //3 values (x,y,z) per point, start at 0 offset 
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET(sizeof(GLfloat)* 3)); //Start after x,y,z, data 
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET<GLfloat, 0>()); //3 values (x,y,z) per point, start at 0 offset 
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(B3D::TVertex), BUFFER_OFFSET<GLfloat, 3>()); //Start after x,y,z, data 
 
 
 

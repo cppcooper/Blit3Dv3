@@ -84,10 +84,12 @@ version 0.11
 #include "BFont.h"
 #include "AngelcodeFont.h"
 
-//this macro helps calculate offsets for VBO stuff
-//Pass i as the number of bytes for the offset, so be sure to use sizeof() 
-//to help calculate bytes accurately.
-#define BUFFER_OFFSET(i) ((char *)NULL + (i))
+//constexp template function helps calculate offsets for VBO stuff at compile time
+//just provide the Type, followed by element offset as positive integer
+template<typename T, uint64_t offset>
+constexpr void* BUFFER_OFFSET() {
+	return (void*)(sizeof(T) * offset);
+}
 
 
 namespace B3D
